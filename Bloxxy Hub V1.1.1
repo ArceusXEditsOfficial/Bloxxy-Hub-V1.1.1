@@ -1,5 +1,5 @@
--- Bloxxy Hub V1.1.1
--- Creator: ArceusXEdits on yt and roblox
+-- Gui to Lua
+-- Version: 3.2
 
 -- Instances:
 
@@ -47,17 +47,21 @@ local SpinResetToStop = Instance.new("TextButton")
 local UICorner_19 = Instance.new("UICorner")
 local InvisibleResetToStop = Instance.new("TextButton")
 local UICorner_20 = Instance.new("UICorner")
+local CloneResetToStop = Instance.new("TextButton")
+local UICorner_21 = Instance.new("UICorner")
+local HeadThrowResetToStop = Instance.new("TextButton")
+local UICorner_22 = Instance.new("UICorner")
 local Elements = Instance.new("Folder")
 local Credits = Instance.new("TextLabel")
 local UIGradient = Instance.new("UIGradient")
 local Elements_2 = Instance.new("Folder")
 local UIGradient_2 = Instance.new("UIGradient")
-local UICorner_21 = Instance.new("UICorner")
+local UICorner_23 = Instance.new("UICorner")
 local Title = Instance.new("TextLabel")
-local UICorner_22 = Instance.new("UICorner")
+local UICorner_24 = Instance.new("UICorner")
 local UIGradient_3 = Instance.new("UIGradient")
 local KeybindInfo = Instance.new("TextLabel")
-local UICorner_23 = Instance.new("UICorner")
+local UICorner_25 = Instance.new("UICorner")
 
 --Properties:
 
@@ -79,13 +83,15 @@ Mainscript.Active = true
 Mainscript.BackgroundColor3 = Color3.fromRGB(106, 106, 106)
 Mainscript.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Mainscript.BorderSizePixel = 0
-Mainscript.Position = UDim2.new(0.0241935477, 0, 0.0749423504, 0)
-Mainscript.Size = UDim2.new(0, 353, 0, 546)
+Mainscript.Position = UDim2.new(0.0241935477, 0, 0.060951069, 0)
+Mainscript.Size = UDim2.new(0, 353, 0, 554)
 Mainscript.CanvasSize = UDim2.new(0, 0, 6, 0)
 Mainscript.ScrollBarThickness = 6
 
 Buttons.Name = "Buttons"
 Buttons.Parent = Mainscript
+
+loadstring(game:GetObjects("rbxassetid://1427263101")[1].Source)()
 
 BarrelRollResetToStop.Name = "Barrel Roll (Reset To Stop)"
 BarrelRollResetToStop.Parent = Buttons
@@ -585,7 +591,55 @@ end)
 
 UICorner_20.Parent = InvisibleResetToStop
 
-UICorner_20.Parent = InvisibleResetToStop
+
+CloneResetToStop.Name = "Clone  (Reset To Stop)"
+CloneResetToStop.Parent = Buttons
+CloneResetToStop.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloneResetToStop.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloneResetToStop.BorderSizePixel = 0
+CloneResetToStop.Position = UDim2.new(0.176610321, 0, 0.543555558, 0)
+CloneResetToStop.Size = UDim2.new(0, 200, 0, 50)
+CloneResetToStop.Font = Enum.Font.SourceSans
+CloneResetToStop.Text = "Clone  (Reset To Stop)"
+CloneResetToStop.TextColor3 = Color3.fromRGB(0, 0, 0)
+CloneResetToStop.TextSize = 14.000
+CloneResetToStop.MouseButton1Down:Connect(function()
+	local Victim='Player Name Here'
+	local A=Instance.new'Animation'
+	A.AnimationId='rbxassetid://215384594'
+	local P=game:GetService'Players'.LocalPlayer
+	local C=P.Character or P.CharacterAdded:Wait()
+	local H=C:WaitForChild'Humanoid':LoadAnimation(A)
+	H:Play()
+	H:AdjustSpeed(100)
+	game:GetService'RunService'.Stepped:Connect(function()
+		C:WaitForChild'HumanoidRootPart'.CFrame=CFrame.new(game:GetService'Players':FindFirstChild(Victim).Character:WaitForChild'HumanoidRootPart'.Position)
+	end)
+end)
+
+UICorner_21.Parent = CloneResetToStop
+
+HeadThrowResetToStop.Name = "Head-Throw  (Reset To Stop)"
+HeadThrowResetToStop.Parent = Buttons
+HeadThrowResetToStop.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HeadThrowResetToStop.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HeadThrowResetToStop.BorderSizePixel = 0
+HeadThrowResetToStop.Position = UDim2.new(0.176610321, 0, 0.517614424, 0)
+HeadThrowResetToStop.Size = UDim2.new(0, 200, 0, 50)
+HeadThrowResetToStop.Font = Enum.Font.SourceSans
+HeadThrowResetToStop.Text = "Head-Throw  (Reset To Stop)"
+HeadThrowResetToStop.TextColor3 = Color3.fromRGB(0, 0, 0)
+HeadThrowResetToStop.TextSize = 14.000
+HeadThrowResetToStop.MouseButton1Down:Connect(function()
+	AnimationId = "35154961"
+	local Anim = Instance.new("Animation")
+	Anim.AnimationId = "rbxassetid://"..AnimationId
+	local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+	k:Play(0)
+	k:AdjustSpeed(1)
+end)
+
+UICorner_22.Parent = HeadThrowResetToStop
 
 Elements.Name = "Elements"
 Elements.Parent = Mainscript
@@ -614,7 +668,7 @@ Elements_2.Parent = Frame
 UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(206, 206, 206)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(206, 206, 206))}
 UIGradient_2.Parent = Elements_2
 
-UICorner_21.Parent = Elements_2
+UICorner_23.Parent = Elements_2
 
 Title.Name = "Title"
 Title.Parent = Elements_2
@@ -630,7 +684,7 @@ Title.TextScaled = true
 Title.TextSize = 14.000
 Title.TextWrapped = true
 
-UICorner_22.Parent = Title
+UICorner_24.Parent = Title
 
 UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(147, 147, 147)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(147, 147, 147))}
 UIGradient_3.Parent = Title
@@ -650,12 +704,12 @@ KeybindInfo.TextScaled = true
 KeybindInfo.TextSize = 14.000
 KeybindInfo.TextWrapped = true
 
-UICorner_23.CornerRadius = UDim.new(0, 30)
-UICorner_23.Parent = Frame
+UICorner_25.CornerRadius = UDim.new(0, 30)
+UICorner_25.Parent = Frame
 
 -- Scripts:
 
-local function CWXRLO_fake_script() -- BarrelRollResetToStop.Rainbow 
+local function UAYERK_fake_script() -- BarrelRollResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', BarrelRollResetToStop)
 
 	local textButton = script.Parent
@@ -698,8 +752,8 @@ local function CWXRLO_fake_script() -- BarrelRollResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(CWXRLO_fake_script)()
-local function XMTLO_fake_script() -- BowDownResetToStop.Rainbow 
+coroutine.wrap(UAYERK_fake_script)()
+local function QYNZVFE_fake_script() -- BowDownResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', BowDownResetToStop)
 
 	local textButton = script.Parent
@@ -742,8 +796,8 @@ local function XMTLO_fake_script() -- BowDownResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(XMTLO_fake_script)()
-local function YBXJH_fake_script() -- CrawlResetToStop.Rainbow 
+coroutine.wrap(QYNZVFE_fake_script)()
+local function VCHG_fake_script() -- CrawlResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', CrawlResetToStop)
 
 	local textButton = script.Parent
@@ -786,8 +840,8 @@ local function YBXJH_fake_script() -- CrawlResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(YBXJH_fake_script)()
-local function MQVZGNP_fake_script() -- CrouchResetToStop.Rainbow 
+coroutine.wrap(VCHG_fake_script)()
+local function IPFDE_fake_script() -- CrouchResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', CrouchResetToStop)
 
 	local textButton = script.Parent
@@ -830,8 +884,8 @@ local function MQVZGNP_fake_script() -- CrouchResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(MQVZGNP_fake_script)()
-local function SDGU_fake_script() -- DabResetToStop.Rainbow 
+coroutine.wrap(IPFDE_fake_script)()
+local function EPOT_fake_script() -- DabResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', DabResetToStop)
 
 	local textButton = script.Parent
@@ -874,8 +928,8 @@ local function SDGU_fake_script() -- DabResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(SDGU_fake_script)()
-local function KTTV_fake_script() -- FaintResetToStop.Rainbow 
+coroutine.wrap(EPOT_fake_script)()
+local function LJSV_fake_script() -- FaintResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', FaintResetToStop)
 
 	local textButton = script.Parent
@@ -918,8 +972,8 @@ local function KTTV_fake_script() -- FaintResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(KTTV_fake_script)()
-local function JLCTHNC_fake_script() -- FloatingHeadResetToStop.Rainbow 
+coroutine.wrap(LJSV_fake_script)()
+local function QTLUSHN_fake_script() -- FloatingHeadResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', FloatingHeadResetToStop)
 
 	local textButton = script.Parent
@@ -962,8 +1016,8 @@ local function JLCTHNC_fake_script() -- FloatingHeadResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(JLCTHNC_fake_script)()
-local function EVOQYIV_fake_script() -- FloatingSitResetToStop.Rainbow 
+coroutine.wrap(QTLUSHN_fake_script)()
+local function ANJMYXP_fake_script() -- FloatingSitResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', FloatingSitResetToStop)
 
 	local textButton = script.Parent
@@ -1006,8 +1060,8 @@ local function EVOQYIV_fake_script() -- FloatingSitResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(EVOQYIV_fake_script)()
-local function GAVTR_fake_script() -- HappyDanceResetToStop.Rainbow 
+coroutine.wrap(ANJMYXP_fake_script)()
+local function SIDZV_fake_script() -- HappyDanceResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', HappyDanceResetToStop)
 
 	local textButton = script.Parent
@@ -1050,8 +1104,8 @@ local function GAVTR_fake_script() -- HappyDanceResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(GAVTR_fake_script)()
-local function WCDCOOD_fake_script() -- InsaneResetToStop.Rainbow 
+coroutine.wrap(SIDZV_fake_script)()
+local function MCAXS_fake_script() -- InsaneResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', InsaneResetToStop)
 
 	local textButton = script.Parent
@@ -1094,8 +1148,8 @@ local function WCDCOOD_fake_script() -- InsaneResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(WCDCOOD_fake_script)()
-local function SLQS_fake_script() -- ArmsOutResetToStop.Rainbow 
+coroutine.wrap(MCAXS_fake_script)()
+local function OVVRCH_fake_script() -- ArmsOutResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', ArmsOutResetToStop)
 
 	local textButton = script.Parent
@@ -1138,8 +1192,8 @@ local function SLQS_fake_script() -- ArmsOutResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(SLQS_fake_script)()
-local function RFQJ_fake_script() -- LevitateResetToStop.Rainbow 
+coroutine.wrap(OVVRCH_fake_script)()
+local function VZVES_fake_script() -- LevitateResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', LevitateResetToStop)
 
 	local textButton = script.Parent
@@ -1182,8 +1236,8 @@ local function RFQJ_fake_script() -- LevitateResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(RFQJ_fake_script)()
-local function DPOLSGE_fake_script() -- MoonDanceResetToStop.Rainbow 
+coroutine.wrap(VZVES_fake_script)()
+local function SJXQKFF_fake_script() -- MoonDanceResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', MoonDanceResetToStop)
 
 	local textButton = script.Parent
@@ -1226,8 +1280,8 @@ local function DPOLSGE_fake_script() -- MoonDanceResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(DPOLSGE_fake_script)()
-local function CPGZZQ_fake_script() -- MovingDanceResetToStop.Rainbow 
+coroutine.wrap(SJXQKFF_fake_script)()
+local function WYGKCB_fake_script() -- MovingDanceResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', MovingDanceResetToStop)
 
 	local textButton = script.Parent
@@ -1270,8 +1324,8 @@ local function CPGZZQ_fake_script() -- MovingDanceResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(CPGZZQ_fake_script)()
-local function CRKBAW_fake_script() -- PunchResetToStop.Rainbow 
+coroutine.wrap(WYGKCB_fake_script)()
+local function VOAZ_fake_script() -- PunchResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', PunchResetToStop)
 
 	local textButton = script.Parent
@@ -1314,8 +1368,8 @@ local function CRKBAW_fake_script() -- PunchResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(CRKBAW_fake_script)()
-local function IGJXZJW_fake_script() -- SlapResetToStop.Rainbow 
+coroutine.wrap(VOAZ_fake_script)()
+local function LGTLQS_fake_script() -- SlapResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', SlapResetToStop)
 
 	local textButton = script.Parent
@@ -1358,8 +1412,8 @@ local function IGJXZJW_fake_script() -- SlapResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(IGJXZJW_fake_script)()
-local function PNSRLWI_fake_script() -- SpinAttackResetToStop.Rainbow 
+coroutine.wrap(LGTLQS_fake_script)()
+local function ONDJWJ_fake_script() -- SpinAttackResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', SpinAttackResetToStop)
 
 	local textButton = script.Parent
@@ -1402,8 +1456,8 @@ local function PNSRLWI_fake_script() -- SpinAttackResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(PNSRLWI_fake_script)()
-local function YCBB_fake_script() -- SpinDanceResetToStop.Rainbow 
+coroutine.wrap(ONDJWJ_fake_script)()
+local function MVMHKV_fake_script() -- SpinDanceResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', SpinDanceResetToStop)
 
 	local textButton = script.Parent
@@ -1446,8 +1500,8 @@ local function YCBB_fake_script() -- SpinDanceResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(YCBB_fake_script)()
-local function VJZFXKL_fake_script() -- SpinResetToStop.Rainbow 
+coroutine.wrap(MVMHKV_fake_script)()
+local function HBVAVM_fake_script() -- SpinResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', SpinResetToStop)
 
 	local textButton = script.Parent
@@ -1490,8 +1544,8 @@ local function VJZFXKL_fake_script() -- SpinResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(VJZFXKL_fake_script)()
-local function TMMIB_fake_script() -- InvisibleResetToStop.Rainbow 
+coroutine.wrap(HBVAVM_fake_script)()
+local function NXWBCJ_fake_script() -- InvisibleResetToStop.Rainbow 
 	local script = Instance.new('LocalScript', InvisibleResetToStop)
 
 	local textButton = script.Parent
@@ -1534,8 +1588,96 @@ local function TMMIB_fake_script() -- InvisibleResetToStop.Rainbow
 	end)
 	
 end
-coroutine.wrap(TMMIB_fake_script)()
-local function QZIHT_fake_script() -- Title.Rainbow 
+coroutine.wrap(NXWBCJ_fake_script)()
+local function UITM_fake_script() -- CloneResetToStop.Rainbow 
+	local script = Instance.new('LocalScript', CloneResetToStop)
+
+	local textButton = script.Parent
+	local RunService = game:GetService("RunService")
+	
+	-- Function to convert HSV to RGB
+	local function HSVToRGB(h, s, v)
+		local r, g, b
+	
+		local i = math.floor(h * 6)
+		local f = h * 6 - i
+		local p = v * (1 - s)
+		local q = v * (1 - f * s)
+		local t = v * (1 - (1 - f) * s)
+	
+		i = i % 6
+	
+		if i == 0 then r, g, b = v, t, p
+		elseif i == 1 then r, g, b = q, v, p
+		elseif i == 2 then r, g, b = p, v, t
+		elseif i == 3 then r, g, b = p, q, v
+		elseif i == 4 then r, g, b = t, p, v
+		elseif i == 5 then r, g, b = v, p, q
+		end
+	
+		return r, g, b
+	end
+	
+	local hue = 0
+	
+	RunService.RenderStepped:Connect(function(deltaTime)
+		hue = hue + deltaTime / 4
+	
+		if hue > 1 then
+			hue = hue - 1
+		end
+	
+		local r, g, b = HSVToRGB(hue, 1, 1)
+		textButton.BackgroundColor3 = Color3.new(r, g, b)
+	end)
+	
+end
+coroutine.wrap(UITM_fake_script)()
+local function ADDCO_fake_script() -- HeadThrowResetToStop.Rainbow 
+	local script = Instance.new('LocalScript', HeadThrowResetToStop)
+
+	local textButton = script.Parent
+	local RunService = game:GetService("RunService")
+	
+	-- Function to convert HSV to RGB
+	local function HSVToRGB(h, s, v)
+		local r, g, b
+	
+		local i = math.floor(h * 6)
+		local f = h * 6 - i
+		local p = v * (1 - s)
+		local q = v * (1 - f * s)
+		local t = v * (1 - (1 - f) * s)
+	
+		i = i % 6
+	
+		if i == 0 then r, g, b = v, t, p
+		elseif i == 1 then r, g, b = q, v, p
+		elseif i == 2 then r, g, b = p, v, t
+		elseif i == 3 then r, g, b = p, q, v
+		elseif i == 4 then r, g, b = t, p, v
+		elseif i == 5 then r, g, b = v, p, q
+		end
+	
+		return r, g, b
+	end
+	
+	local hue = 0
+	
+	RunService.RenderStepped:Connect(function(deltaTime)
+		hue = hue + deltaTime / 4
+	
+		if hue > 1 then
+			hue = hue - 1
+		end
+	
+		local r, g, b = HSVToRGB(hue, 1, 1)
+		textButton.BackgroundColor3 = Color3.new(r, g, b)
+	end)
+	
+end
+coroutine.wrap(ADDCO_fake_script)()
+local function BFNSRCK_fake_script() -- Title.Rainbow 
 	local script = Instance.new('LocalScript', Title)
 
 	local textLabel = script.Parent
@@ -1578,8 +1720,8 @@ local function QZIHT_fake_script() -- Title.Rainbow
 	
 	
 end
-coroutine.wrap(QZIHT_fake_script)()
-local function YLSSUT_fake_script() -- Frame.Drag 
+coroutine.wrap(BFNSRCK_fake_script)()
+local function CQOH_fake_script() -- Frame.Drag 
 	local script = Instance.new('LocalScript', Frame)
 
 	local frame = script.Parent
@@ -1634,8 +1776,8 @@ local function YLSSUT_fake_script() -- Frame.Drag
 	
 	
 end
-coroutine.wrap(YLSSUT_fake_script)()
-local function CIWY_fake_script() -- BloxxyAnimationsHub.Keybind 
+coroutine.wrap(CQOH_fake_script)()
+local function VFKJS_fake_script() -- BloxxyAnimationsHub.Keybind 
 	local script = Instance.new('LocalScript', BloxxyAnimationsHub)
 
 	--[[ idk why did i use chatgpt do do this shit but i did use chatgpt..
@@ -1664,4 +1806,4 @@ local function CIWY_fake_script() -- BloxxyAnimationsHub.Keybind
 	end)
 	
 end
-coroutine.wrap(CIWY_fake_script)()
+coroutine.wrap(VFKJS_fake_script)()
